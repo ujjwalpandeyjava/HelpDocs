@@ -8,16 +8,50 @@ Not allowed:
 2.0.0 or higher (major version updates are excluded)
 
 
->> npm outdated
+# Update dependencies used in projects
+
+Using package [npm-check-updates](https://www.npmjs.com/package/npm-check-updates)
+
+To update all dependencies in your React application to their latest versions, you can follow these steps:
+
+0. Check list of outdated dependencies
+	```
+	npm outdated
+	```
+
+1. **Install `npm-check-updates` globally**:
+	```bash
+	npm install -g npm-check-updates
+	
+	```
+	in case getting error of mkdir not allowed -13 use:
+	```
+	npm i npm-check-updates
+	```
+
+2. **Run `npm-check-updates` to update the `package.json` file**:
+	```bash
+	npx npm-check-updates -u
+	```
+
+3. **Install the updated dependencies**:
+	```bash
+	npm install
+	```
+
+These commands will update your `package.json` file with the latest versions of all dependencies and then install them
+
+> npm outdated
+
 Check list of outdated libraries used in project
 
->> npm update
+> npm update
 Updates all packages to their latest versions
 
->> npm i <Library> [<Library2> ... ]
+> npm i <Library> [<Library2> ... ]
 Install libraries
 
->> npm unstall <Library> [<Library2> ... ]
+> npm unstall <Library> [<Library2> ... ]
 Uninstall libraries
 
 
