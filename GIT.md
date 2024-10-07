@@ -27,3 +27,18 @@ Removes the last commit from local >> `git reset --hard HEAD~`
 Reset the `HEAD` to a previous commit >> `git reset --hard HEAD~1`
 
 Branch will be reset >> `git push origin <branch_name> --force`
+
+## Tags
+
+Tags mark important points in a project's history for easy reference, like version releases. Simplifies tracking and versioning.
+
+1. List tags
+	- `git tag`
+	- `git tag -l`
+
+2. Create a tag
+	- git tag tag_name
+	- git push origin tag_name
+	- example:
+		- git tag v1.0
+		- git push origin v1.0
