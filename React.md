@@ -1,16 +1,14 @@
-# React
+# React Sever/hosting official help doc
 
-## Sever/hosting official help doc
+> <https://create-react-app.dev/docs/deployment/#serving-apps-with-client-side-routing>
 
-https://create-react-app.dev/docs/deployment/#serving-apps-with-client-side-routing
+Before starting any app use "npm install".
 
-Before starting any app use "npm install".\
-
-# Issue fix
+## Issue fixing
 
 How to fix errors
 
-## 1.  Babel error
+### 1.  Babel error
 
     One of your dependencies, babel-preset-react-app, is importing the
     "@babel/plugin-proposal-private-property-in-object" package without
@@ -19,29 +17,29 @@ How to fix errors
     node_modules folder for unrelated reasons, but it may break at any time.
 
     babel-preset-react-app is part of the create-react-app project, which
-    is not maintianed anymore. It is thus unlikely that this bug will
+    is not maintained anymore. It is thus unlikely that this bug will
     ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
     your devDependencies to work around this error. This will make this message
     go away.
 
 ### Solution
 
-	npm install --save-dev @babel/plugin-proposal-private-property-in-object
+> npm install --save-dev @babel/plugin-proposal-private-property-in-object
 
 ## 2. How to change port of react app
 
     1. In "package.json" file
 
     "scripts": {
-      from ->	"start": "react-scripts start", // default 3000
-      to -> 	"start": "PORT=3006 react-scripts start", // set to 3006
+      from -> "start": "react-scripts start", // default 3000
+      to ->  "start": "PORT=3006 react-scripts start", // set to 3006
     }
 
 
     2. In `src/index.js`:
 
     From -> ReactDOM.render(<App />, document.getElementById('root'));
-    To -> 	ReactDOM.render(<App />, document.getElementById('root'), 3006); 
+    To ->  ReactDOM.render(<App />, document.getElementById('root'), 3006); 
     
     3. Define `.env` file:  This keeps the port config separate
 
@@ -71,14 +69,25 @@ issue with this approach: it gives all the key to user visible in network tab an
 
 2. Way 2 (recommended)
 
-	Create a .env file in the root directory of project
-	Add custom variables with the prefix 'REACT_APP_', example: REACT_APP_API_KEY=123456789
-	Use 'process.env.REACT_APP_API_KEY' to access, example: const apiKey = process.env.REACT_APP_API_KEY;
-  Safe, no data leak
-
-
-
+Create a .env file in the root directory of project
+Add custom variables with the prefix 'REACT_APP_', example: REACT_APP_API_KEY=123456789
+Use 'process.env.REACT_APP_API_KEY' to access, example: const apiKey = process.env.REACT_APP_API_KEY;
+Safe, no data leak
 
 ## Use SCSS
+
   No extra work...
   install and use `npm install sass`
+
+## Migrate a React Project to TypeScript
+
+1. Install TypeScript and Type Definitions
+
+npm install --save-dev typescript @types/node @types/react @types/react-dom @types/jest
+
+1. Create a tsconfig.json File
+
+
+
+
+
