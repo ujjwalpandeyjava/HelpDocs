@@ -13,12 +13,17 @@
 
 `rm -rf .git`
 
+## Remove files that are already tracked by Git
+
+`git rm -r --cached .` Remove the files from the Git index
+
+`git add .` Add all the files back to the index
+
+Now commit and push
+
 ## Directly open the git repo on browser from git folder
 
-`git config --get remote.origin.ur`
-
-then
-open "url we got"
+`git config --get remote.origin.url`
 
 ## Remove `HEAD` from a Git repository
 
@@ -33,16 +38,18 @@ Branch will be reset >> `git push origin <branch_name> --force`
 Tags mark important points in a project's history for easy reference, like version releases. Simplifies tracking and versioning.
 
 1. List tags
-    - git tag
-    - git tag -l
+
+   - git tag
+   - git tag -l
 
 2. Create a tag
-    - git tag tag_name
-    - git push origin tag_name
+
+   - git tag tag_name
+   - git push origin tag_name
 
 3. Example:
-    - git tag v1.0
-    - git push origin v1.0
+   - git tag v1.0
+   - git push origin v1.0
 
 ## Stash
 
@@ -52,11 +59,3 @@ This is particularly useful when you need to switch branches or perform other op
 Multiple Stash (LIFO)
 
 Git Stash Commands
-
-1. Stash Changes : `git stash` or `git stash save "optional message"` Stashes uncommitted changes and reverts directory to match the last commit.\
-2. List Stashes: `git stash list` Displays all stashed changes in LIFO.\
-3. Show Stash Contents: `git stash show stash@{index}` or `git stash show -p stash@{index}` Shows a summary of changes.\
-4. Apply Stashed Changes: `git stash apply` or `git stash apply stash@{index}` apply without removing.\
-5. Pop Stashed Changes: `git stash pop` or `git stash pop stash@{index}` apply and remove.\
-6. Drop a Stash: `git stash drop stash@{index}` Deletes a specific stash entry.\
-7. Clear All Stashes: `git stash clear` remove all.
