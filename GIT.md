@@ -13,17 +13,13 @@
 
 `rm -rf .git`
 
-## Remove files that are already tracked by Git
+## Remove cached files
 
-`git rm -r --cached .` Remove the files from the Git index
+Files that are already tracked by Git and you added in .gitignore
 
-`git add .` Add all the files back to the index
+`git rm -r --cached .` Removes the files from the Git index
 
-Now commit and push
-
-## Directly open the git repo on browser from git folder
-
-`git config --get remote.origin.url`
+> now git add all and commit and push
 
 ## Remove `HEAD` from a Git repository
 
