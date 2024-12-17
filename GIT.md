@@ -55,3 +55,7 @@ This is particularly useful when you need to switch branches or perform other op
 Multiple Stash (LIFO)
 
 Git Stash Commands
+
+## Delete all local branch
+
+git branch | grep -v "main" | xargs git branch -d

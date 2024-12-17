@@ -1,5 +1,9 @@
 # React help with issue and how to
 
+## Crate react app
+
+`npx create-react-app app_name`
+
 ## Official hosting help docs
 
 <https://create-react-app.dev/docs/deployment/#serving-apps-with-client-side-routing>
