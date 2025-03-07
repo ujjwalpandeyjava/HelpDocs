@@ -1,5 +1,14 @@
 # Git help
 
+##  Command to confing name and email
+
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
+## Verify Git Configuration
+
+git config --global --list
+
 ## Get the url of repo
 
 `git config --get remote.origin.url`
