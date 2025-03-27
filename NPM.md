@@ -15,7 +15,7 @@ Update minor version
 > `npm outdated` -- Check outdated
 > `npm update` -- Updates all to their latest minor versions
 > `npm i lib1 lib2` -- update selected
-> `npm uninstall lib1 lib2` --  uninstall
+> `npm uninstall lib1 lib2` -- uninstall
 
 Update major version (not-recommended for big project)
 

@@ -41,17 +41,17 @@ Install dependency: `npm install --save-dev @babel/plugin-proposal-private-prope
 
 #### With `src/index.js`
 
-  From -> ReactDOM.render(<App />, document.getElementById('root'));
-  To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);
+From -> ReactDOM.render(<App />, document.getElementById('root'));
+To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);
 
 #### Define `.env` file: This keeps the port config separate
 
-  PORT=3006
+PORT=3006
 
 And access it via `process.env.PORT` in code, OR with some other way
 
-  From -> ReactDOM.render(<App />, document.getElementById('root'));
-  To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);
+From -> ReactDOM.render(<App />, document.getElementById('root'));
+To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);
 
     3. Define `.env` file:  This keeps the port config separate
 
@@ -59,22 +59,22 @@ And access it via `process.env.PORT` in code, OR with some other way
 
 1. Way 1 (not recommended)
 
-  install 'npm i react-dotenv' and change the package.json "scripts" json to:
-  "scripts": {
-    "start": "react-dotenv && react-scripts start",
-    "build": "react-dotenv && react-scripts build",
-    "test": "react-dotenv && react-scripts test",
-    "serve": "react-dotenv && serve build",
-    "eject": "react-scripts eject"
-  }
-  add this
-  "react-dotenv": {
-  "whitelist": [
-    "KEY_Names1",
-    "KEY_Names2",
-    ]
-  }
-  issue with this approach: it gives all the key to user visible in network tab and in window.
+install 'npm i react-dotenv' and change the package.json "scripts" json to:
+"scripts": {
+"start": "react-dotenv && react-scripts start",
+"build": "react-dotenv && react-scripts build",
+"test": "react-dotenv && react-scripts test",
+"serve": "react-dotenv && serve build",
+"eject": "react-scripts eject"
+}
+add this
+"react-dotenv": {
+"whitelist": [
+"KEY_Names1",
+"KEY_Names2",
+]
+}
+issue with this approach: it gives all the key to user visible in network tab and in window.
 
 2. Way 2 (recommended)
 

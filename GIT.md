@@ -1,6 +1,6 @@
 # Git help
 
-##  Command to config name and email
+## Command to config name and email
 
 `git config --global user.name "Your Name"`
 
@@ -9,7 +9,6 @@
 ## Verify Git Configuration
 
 git config --global --list
-
 
 ## Get the url of repo
 
@@ -30,7 +29,9 @@ Files that are already tracked by Git and you added in .gitignore
 
 `git rm -r --cached .` Removes the files from the Git index
 
-> now git add all and commit and push
+> Now git add . and commit and push
+
+> Remove branches from local not on remote -- `git fetch --prune`
 
 ## Remove `HEAD` from a Git repository
 
