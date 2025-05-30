@@ -28,3 +28,9 @@ Steps to Fix the Issue
         Recommended: RemoteSigned
         Run: `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
     4. Verify with step 2
+
+## save dependencies
+
+You should use `--save-dev` when installing packages like sass because these are development dependencies-they are only needed while you are developing your application, not when it is running in production.
+
+**Cleaner production builds**: Packages in devDependencies are not installed when you deploy your app with npm install --production or when the environment variable NODE_ENV is set to production. This keeps your production environment smaller and more secure

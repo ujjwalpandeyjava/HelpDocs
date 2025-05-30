@@ -19,8 +19,10 @@ Update minor version
 
 Update major version (not-recommended for big project)
 
-> `npm install -g npm-check-updates` -- Install packeage globally
+With library: `npm i npm-check-updates`
+
+> `npm install -g npm-check-updates` -- Install package globally
 > `ncu` -- See all outdated
-> `ncu -u` -- updated packages in package.json
+> `ncu -u` -- update packages in package.json
 > `npm install` -- install
 > `npm outdated` or `ncu` -- Verify

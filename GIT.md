@@ -39,7 +39,7 @@ Removes the last commit from local >> `git reset --hard HEAD~`
 
 Reset the `HEAD` to a previous commit >> `git reset --hard HEAD~1`
 
-Branch will be reset >> `git push origin <branch_name> --force`
+Branch will be reset >> `git push origin ujjwal --force`
 
 ## Tags
 
@@ -67,6 +67,10 @@ This is particularly useful when you need to switch branches or perform other op
 Multiple Stash (LIFO)
 
 Git Stash Commands
+
+`git stash list`
+
+`git stash apply`
 
 ## Delete all local branch
 
