@@ -123,3 +123,9 @@ In this case, the `forward:` prefix tells Spring to forward the request to anoth
    password: after line "Using generated security password" 26746860-8ed6-4def-b4a2-c4259dfb3832
 
 2. Check application pda_backend
+
+## MicroService
+
+Servers to start first and later in sequence.
+
+Bom > config > Gateway > Eureka > Auth > Admin > User > bot > Notification > Live
