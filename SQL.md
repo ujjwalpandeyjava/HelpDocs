@@ -32,3 +32,9 @@ Hibernate: alter table user modify column user_type enum ('GUEST','AdminUser','N
 Add Jar in buildpath > classpath
 and
 Add jar in server > open launch config > classpath > user entities
+
+# Install on mac - not working.
+- brew install mysql@8.4
+- brew services start mysql
+- brew install mysql-client
+- mysql_secure_installation

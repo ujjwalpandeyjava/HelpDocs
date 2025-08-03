@@ -2,6 +2,65 @@
 
 Redis is a fast, in-memory key-value store used for caching, real-time data, and pub-sub messaging.
 
+## Steps
+
+- Add dependency
+
+```XML
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+
+- Add in application.properties
+```
+spring.redis.host=localhost
+spring.redis.port=6379
+spring.redis.password=yourpassword   # optional
+spring.redis.timeout=2000ms          # optional
+```
+
+- Add on main
+ 
+@EnableCaching
+
+- Add Beans
+
+```java beans
+@Configuration
+public class CacheConfig {
+	@Bean
+	public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {
+	RedisTemplate<String, Object> template = new RedisTemplate<>();
+	template.setConnectionFactory(connectionFactory);
+	template.setKeySerializer(new StringRedisSerializer());
+	template.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+	return template;
+	}
+
+  @Bean
+  public RedisCacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
+    RedisCacheConfiguration cacheConfig = RedisCacheConfiguration.defaultCacheConfig()
+      .entryTtl(Duration.ofMinutes(10))
+      .serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
+      .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+    return RedisCacheManager.builder(redisConnectionFactory)
+      .cacheDefaults(cacheConfig)
+      .build();
+  }
+}
+```
+
+- Use case
+
+```Java
+@Cacheable(value = "items", key="#id", unless="#result == null", cacheManager = "cacheManager")
+public Item getItemById(Long id) {
+  // Expensive database call
+}
+```
+
 ## Windows
 
 Redis is not officially supported on Windows. Can install Redis for development only.
