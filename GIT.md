@@ -27,9 +27,10 @@ git config --global --list
 
 Files that are already tracked by Git and you added in .gitignore
 
-`git rm -r --cached .` Removes the files from the Git index
-
-> Now git add . and commit and push
+> `git rm -r --cached .` Removes the files from the Git index
+> Now `git add .` to add in stage
+> `git commit -m "removed files should not be on git"` to commit
+> `git push` now push code.
 
 > Remove branches from local not on remote -- `git fetch --prune`
 
