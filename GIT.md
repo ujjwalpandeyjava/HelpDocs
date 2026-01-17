@@ -36,11 +36,11 @@ Files that are already tracked by Git and you added in .gitignore
 
 ## Remove `HEAD` from a Git repository
 
-Removes the last commit from local >> `git reset --hard HEAD~`
+Reset the last commit from local >> `git reset --hard HEAD~`
 
 Reset the `HEAD` to a previous commit >> `git reset --hard HEAD~1`
 
-Branch will be reset >> `git push origin ujjwal --force`
+Branch will be reset >> `git push origin --force`
 
 ## Tags
 
