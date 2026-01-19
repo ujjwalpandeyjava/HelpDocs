@@ -31,14 +31,11 @@ Files that are already tracked by Git and you added in .gitignore
 > Now `git add .` to add in stage
 > `git commit -m "removed files should not be on git"` to commit
 > `git push` now push code.
-
 > Remove branches from local not on remote -- `git fetch --prune`
 
 ## Remove `HEAD` from a Git repository
 
-Reset the last commit from local >> `git reset --hard HEAD~`
-
-Reset the `HEAD` to a previous commit >> `git reset --hard HEAD~1`
+Reset the last commit from local >> `git reset --hard HEAD~` or `git reset --hard HEAD~1`
 
 Branch will be reset >> `git push origin --force`
 
@@ -76,3 +73,35 @@ Git Stash Commands
 ## Delete all local branch
 
 git branch | grep -v "main" | xargs git branch -d
+
+## Merge Repos
+
+### Prepare Repo-B
+```Bash
+cd path/to/repo-b
+```
+
+### Connect and Fetch Repo-A
+```Bash
+git remote add repo-a-link https://github.com/user/repo-a.git
+git fetch repo-a-link
+```
+### Merge Repo-A into Repo-B
+```Bash
+git merge repo-a-link/main --allow-unrelated-histories
+```
+### Organize Repo-A Files (Optional)
+```Bash
+mkdir repo-a-files
+```
+# Move Repo-A files into the new folder to avoid root clutter
+```
+git mv [file-list] repo-a-files/
+git commit -m "Move Repo-A files into subdirectory"
+```
+### Cleanup and Push
+```Bash
+git remote remove repo-a-link
+git push origin main
+```
+Quick Tip: If Repo-A uses master instead of main, ensure you swap the branch name in step 3.
