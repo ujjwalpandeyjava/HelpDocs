@@ -35,9 +35,30 @@ Files that are already tracked by Git and you added in .gitignore
 
 ## Remove `HEAD` from a Git repository
 
-Reset the last commit from local >> `git reset --hard HEAD~` or `git reset --hard HEAD~1`
+`git reset --soft HEAD~1`
+   Undo last commit but keep changes staged
 
-Branch will be reset >> `git push origin --force`
+`git reset --hard HEAD~1`
+   Undo last commit and delete all changes
+
+`git reset --mixed HEAD~1` or `git reset HEAD~1` (default)
+   Undo last commit and move changes to unstaged
+
+`git reset HEAD hash_code` (mixed)
+   Undo last commit and move file changes to unstageds
+
+`git push origin --force` >> Branch will be reset
+
+## merge source branch → target branch
+
+Ways
+
+### Basic command
+
+First make sure both branch are in sync (pull, push)
+
+git checkout target-branch
+git merge source-branch
 
 ## Tags
 
@@ -70,40 +91,22 @@ Git Stash Commands
 
 `git stash apply`
 
-## Delete all local branch
-
-git branch | grep -v "main" | xargs git branch -d
-
 ## Merge Repos
 
-### Prepare Repo-B
+Two ways
 
-`cd path/to/repo-b`
+### Merge repo-b into repo-a (same root)
 
-### Connect and Fetch Repo-A
+git remote add repo-b <repo-b-url>
+git fetch repo-b
+git merge repo-b/main --allow-unrelated-histories
+git commit -m "Merged repo-b into root"
+git push
 
-`git remote add repo-a-link https://github.com/user/repo-a.git`
+### Merge repo-b into repo-a inside a folder
 
-`git fetch repo-a-link`
-
-### Merge Repo-A into Repo-B
-
-`git merge repo-a-link/main --allow-unrelated-histories`
-
-### Organize Repo-A Files (Optional)
-
-`mkdir repo-a-files`
-
-### Move Repo-A files into the new folder to avoid root clutter
-
-`git mv [file-list] repo-a-files/`
-
-`git commit -m "Move Repo-A files into subdirectory"`
-
-### Cleanup and Push
-
-Quick Tip: If Repo-A uses master instead of main, ensure you swap the branch name in step 3.
-
-`git remote remove repo-a-link`
-
-`git push origin main`
+git remote add repo-b <repo-b-url>
+git fetch repo-b
+git read-tree --prefix=repo-b-folder/ -u repo-b/main
+git commit -m "Merged repo-b into folder"
+git push
