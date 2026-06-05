@@ -26,32 +26,34 @@
 
 Install dependency: `npm install --save-dev @babel/plugin-proposal-private-property-in-object`
 
-### 2. How to change port of react app
+## 2. How to change port of react app
 
 > Solution `npm install --save-dev @babel/plugin-proposal-private-property-in-object`
 
-#### With "package.json" file
+### With "package.json" file
 
-```text
+```JSON
   "scripts": {
     from -> "start": "react-scripts start", // default 3000
     to -> "start": "PORT=3006 react-scripts start", // set to 3006
   }
 ```
 
-#### With `src/index.js`
+### With `src/index.js`
 
-From -> ReactDOM.render(<App />, document.getElementById('root'));
-To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);
+`From -> ReactDOM.render(<App />, document.getElementById('root'));`
 
-#### Define `.env` file: This keeps the port config separate
+`To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);`
+
+### Define `.env` file: This keeps the port config separate
 
 PORT=3006
 
 And access it via `process.env.PORT` in code, OR with some other way
 
-From -> ReactDOM.render(<App />, document.getElementById('root'));
-To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);
+`From -> ReactDOM.render(<App />, document.getElementById('root'));`
+
+`To -> ReactDOM.render(<App />, document.getElementById('root'), 3006);`
 
     3. Define `.env` file:  This keeps the port config separate
 
@@ -76,7 +78,7 @@ add this
 }
 issue with this approach: it gives all the key to user visible in network tab and in window.
 
-2. Way 2 (recommended)
+1. Way 2 (recommended)
 
 Create a .env file in the root directory of project
 Add custom variables with the prefix 'REACT*APP*', example: REACT_APP_API_KEY=123456789

@@ -40,7 +40,7 @@ You should use `--save-dev` when installing packages like sass because these are
 Update minor version
 
 > `npm outdated` -- Check outdated
-> `npm update` -- Updates all to their latest minor versions
+> `npm update` -- (Safe update) Updates all to their latest minor versions
 > `npm i lib1 lib2` -- update selected
 > `npm uninstall lib1 lib2` -- uninstall
 
